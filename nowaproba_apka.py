@@ -1,4 +1,16 @@
-listapozywek=['SS','CPS','COS','EMB','CH', 'AO', 'AC', 'MC']
+import csv
+def make_dict():
+    slownik = {}
+    path=open('C:/Users/HP/Documents\gatunki.csv','r')
+    for line in path:
+        if len(line) > 1:
+            z = line.split()
+            if z[0] != '':
+                slownik[z[0]] = z[1:len(z)]
+    return slownik
+print (make_dict())
+
+listapozywek=list(make_dict().items())
 def wybor(y):
   for i in(range(len(y))):
     print('Wybierz ', i+1, 'jeśli interesuje Cię ',y[i])
